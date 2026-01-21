@@ -1,20 +1,34 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
 
-# Run and deploy your AI Studio app
+# AI Code Review Tool
 
-This contains everything you need to run your app locally.
+A simple AI-powered code review tool that analyzes source code to find issues, suggest optimizations, and improve overall quality. It reviews code from software development, QA testing, and cybersecurity perspectives.
 
-View your app in AI Studio: https://ai.studio/apps/drive/12ngqGDybctUup3CcIHunW9Wi8FBBe38z
+## Features
 
-## Run Locally
+- Code quality and best-practice suggestions  
+- Bug and edge-case detection  
+- Performance optimization tips  
+- Security vulnerability identification  
+- Human vs AI-written code analysis  
 
-**Prerequisites:**  Node.js
+## Usage
 
+1. Provide your source code as input  
+2. The tool analyzes structure, logic, and patterns  
+3. Receive feedback on bugs, optimizations, and security risks  
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Use Cases
+
+- Pre-commit or pre-merge code reviews  
+- Early bug detection  
+- Security awareness and risk reduction  
+
+## Roadmap
+
+- Multi-language support  
+- CI/CD integration  
+- Auto-fix recommendations  
+
+## License
+
+MIT License
