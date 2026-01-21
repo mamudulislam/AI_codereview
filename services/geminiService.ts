@@ -53,21 +53,19 @@ const REVIEW_SCHEMA = {
 };
 
 export const reviewCode = async (code: string, language: string): Promise<CodeReviewResult> => {
-  const prompt = `You are an expert-level senior software engineer and AI code detection specialist.
-I will give you some source code written in ${language}.
+  const prompt = `STRICT SYSTEM INSTRUCTION:
+You are a senior elite developer. You must perform a logical audit of the PROVIDED CODE below.
 
-Your tasks:
-1. Rate the overall code quality: "Better", "Good", "Normal", or "Bad".
-2. Explain what the code does.
-3. Identify bugs, security flaws, and performance bottlenecks.
-4. Estimate the percentage (0-100) of AI authorship. Look for LLM-typical patterns (e.g., standard boilerplate, specific naming conventions, lack of typical human shortcuts/messiness).
-5. Provide a justification for this percentage in 'originAnalysis'.
-6. Provide an improved version.
+RULES:
+1. ONLY analyze the code snippet provided. 
+2. If the code is minimal (e.g., a single print statement), do NOT invent complex bugs.
+3. If the code is syntactically invalid for ${language} (e.g. using 'print' in JavaScript instead of 'console.log'), identify that as a primary error.
+4. Be honest about AI usage: high-quality generic boilerplate is usually AI; unique, specific, or non-standard code is usually Human.
 
-Code to review:
-\`\`\`${language.toLowerCase()}
+PROVIDED CODE (${language}):
+"""
 ${code}
-\`\`\`
+"""
 `;
 
   try {
@@ -75,6 +73,7 @@ ${code}
       model: 'gemini-3-flash-preview',
       contents: prompt,
       config: {
+        thinkingConfig: { thinkingBudget: 4000 },
         responseMimeType: "application/json",
         responseSchema: REVIEW_SCHEMA,
       },
