@@ -1,0 +1,5 @@
+{
+  "name": "AI Code Sentinel",
+  "description": "An advanced AI-powered code review and optimization tool that provides deep logical analysis, security auditing, and performance suggestions using Gemini 3.",
+  "requestFramePermissions": []
+}
